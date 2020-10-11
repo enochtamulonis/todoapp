@@ -1,0 +1,50 @@
+<div class="w-full h-screen show-page-body flex flex-col bg-green-500 items-center pt-10">
+<h1 class="text-3xl text-white mt-4"> <%= @todo_list.title %> </h1>
+  <div class="card-size bg-gray-400 flex flex-col rounded items-center">
+    <div class=" w-full bg-gray-400">
+      <%= render 'progress_bar', :todo_list => @todo_list %>
+    </div>
+    <%= form_for([@todo_list, @todo_item]) do |f| %>
+      <div class="w-full min-h-8 flex border-b border-indigo-600 py-2">
+        <%= f.text_field :description, class: "appearance-none bg-transparent border-none w-full text-black mr-3 py-1 px-2 leading-tight focus:outline-none pl-2", placeholder: "Add a new list item" %>
+        <%= f.submit "Add", class: "flex-shrink-0 border-transparent border-2 bg-transparent hover:text-white hover:bg-indigo-600 text-md py-1 px-2 rounded cursor-pointer" %>
+      </div>
+    <% end %>
+    <div data-controller="todo_item" class="w-full">
+      <ul class="w-full h-full flex flex-col items-center" data-action="drop->todo_item#sort">
+        <% @todo_list.todo_items.order(created_at: :desc).each do |todo_item| %>
+        <li class="w-full h-full rounded flex item-center py-5 cursor-pointer" data-task-id="<%= todo_item.id %>">
+          <div class="flex w-full justify-between px-4">
+            <span>
+              <%= todo_item.description %>
+            </span>
+            <div class="flex min-w-8">
+            <% if todo_item.completed? %>
+              <%= link_to "#", class: "w-8 h-8 border-2 border-green-500 rounded-sm flex justify-center items-center",
+              data: { reflex: 'click->TodoItem#mark_incomplete ', id: todo_item.id } do %>
+                <i class="fa fa-check"></i>
+              <% end %>
+            <% else %>
+              <%= link_to "#", class: "w-8 h-8 border-2 border-indigo-600 rounded-lg flex justify-center items-center",
+                data: { reflex: 'click->TodoItem#mark_complete ', id: todo_item.id } do %>
+              <% end %>
+            <% end %>
+            <%= link_to "#", class: "w-8 h-8 ml-3 flex items-center justify-center",
+              data: { reflex: 'click->TodoItem#delete_todo', id: todo_item.id } do %>
+              <i class="fa fa-trash"></i>
+            <% end %>
+            </div>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="w-1/2 h-10 flex justify-around">
+    <%= link_to 'go back', todo_lists_path , :class => "h-8 min-w-10 px-2 py-4 bg-gray-700 flex justify-center text-white items-center mt-4"%>
+    <%= link_to "edit list", edit_todo_list_path, :class => "h-8 min-w-10 px-10 py-4 bg-blue-500 flex justify-center text-white items-center mt-4" %>
+  </div>
+</div>
+<% if @todo_list.background.attached? %>
+  <%= render 'background', :todo_list => @todo_list %>
+<% end %>

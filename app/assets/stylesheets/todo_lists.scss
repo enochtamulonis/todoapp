@@ -1,0 +1,23 @@
+// Place all the styles related to the TodoLists controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.picture-center-form {
+  width: 20em;
+  height: 8em;
+  overflow: hidden;
+  object-fit: fill;
+  position: relative;
+  margin: 10px;
+}
+
+.uploaded-image {
+   position: absolute;
+   left: -1000%;
+   right: -1000%;
+   top: -1000%;
+   bottom: -1000%;
+   margin: auto;
+   min-height: 100%;
+   min-width: 100%;
+}

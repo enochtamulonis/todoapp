@@ -1,0 +1,64 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import "./actiontext.scss";
+
+.card-size {
+  height: 40em;
+  width: 60vw;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.centered-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-new-top-bar {
+  position: sticky;
+  top: 0;
+}
+
+.picture-form {
+  height: 8em;
+  width: 20em;
+  overflow: hidden;
+}
+@media (max-width: 1250px) {
+  .card-size {
+    width: 75vw;
+  }
+}
+
+@media (max-width: 750px) {
+  .card-size {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 350px) {
+  .card-size {
+    width: 100vw;
+  }
+}

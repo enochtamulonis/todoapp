@@ -1,0 +1,35 @@
+<div class="w-full h-screen bg-green-500 flex flex-col items-center pt-10">
+    <h1 class="text-3xl text-white mt-4 mb-2">All of your lists</h1>
+    <div class="card-size bg-gray-300 flex flex-column rounded justify-center">
+
+      <div class="w-full full flex flex-col pt-4">
+        <% @todo_lists.each do |todo_list| %>
+          <div class="w-full flex mb-2">
+            <div class="w-1/4 flex pl-4">
+              <% if todo_list.background.attached? %>
+                <%= link_to todo_list do %>
+                  <%= image_tag(todo_list.background.variant(resize: "75x75!")) %>
+                <% end %>
+              <% else %>
+                <i class="fa fa-times"> </i>
+              <% end %>
+            </div>
+            <div class="flex w-3/4 justify-between items-center">
+              <h3 class="text-2xl"> <%= link_to todo_list.title, todo_list %> </h3>
+              <%= link_to "#", class: "w-8 h-8",
+                data: { :confirm => 'Are you sure?', reflex: 'click->TodoList#delete_todo_list', id: todo_list.id } do %>
+                <i class="fa fa-times"></i>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+    </div>
+    <%= link_to new_todo_list_path, :class => "mt-4 flex justify-center" do %>
+      <div class="flex bg-yellow-300 items-center min-w-10 px-10 py-2 rounded flex justify-center hover:bg-transparent border-2 border-transparent hover:border-yellow-300">
+        <i class="fa fa-plus-square"></i><h3 class=" ml-3"> New Todo List </h3>
+      </div>
+    <% end %>
+
+</div>

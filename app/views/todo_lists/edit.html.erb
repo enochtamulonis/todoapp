@@ -1,0 +1,11 @@
+<div class="w-full h-screen bg-green-500 flex flex-col items-center pt-10">
+
+  <div class="card-size bg-gray-800 flex flex-col items-center pt-8 rounded">
+    <h1 class="text-2xl text-white mb-6">Editing List</h1>
+
+    <%= render 'form', todo_list: @todo_list %>
+  </div>
+  <div class="flex flex-col mt-4 text-center">
+    <%= link_to 'Back', @todo_list, :class => "h-8 px-2 border-2 border-black hover:text-white hover:bg-black"%>
+  </div>
+</div>

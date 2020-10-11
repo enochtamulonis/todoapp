@@ -1,0 +1,7 @@
+<div class="w-full h-screen bg-green-500 centered-column">
+  <h1 class="text-3xl text-white">New todo_item</h1>
+  <div class="card-size bg-gray-300 flex flex-column rounded justify-center">
+    <%= render 'form' %>
+  </div>
+  <%= link_to 'Back', todo_list_todo_items_path(@todo_item.todo_list) %>
+</div>
