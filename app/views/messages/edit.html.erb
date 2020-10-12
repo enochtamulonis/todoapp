@@ -1,0 +1,6 @@
+<h1>Editing message</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', [@message.todo_list, @message] %> |
+<%= link_to 'Back', todo_list_messages_path(@message.todo_list) %>

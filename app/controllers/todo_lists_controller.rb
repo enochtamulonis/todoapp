@@ -11,6 +11,7 @@ class TodoListsController < ApplicationController
   # GET /todo_lists/1.json
   def show
     @todo_item = TodoItem.new
+    @message = Message.new
   end
 
   # GET /todo_lists/new

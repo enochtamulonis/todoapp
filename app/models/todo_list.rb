@@ -1,7 +1,8 @@
 class TodoList < ApplicationRecord
+  has_many :messages
   has_many :todo_items, dependent: :destroy
   has_one_attached :background
-  validates :title, presence: true 
+  validates :title, presence: true
   def percent_completed
     return 0 if total_items == 0
 

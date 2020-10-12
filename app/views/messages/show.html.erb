@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Is read:</b>
+  <%= @message.is_read %>
+</p>
+
+<p>
+  <b>Todo list:</b>
+  <%= @message.todo_list %>
+</p>
+
+
+<%= link_to 'Edit', edit_todo_list_message_path(@message.todo_list, @message) %> |
+<%= link_to 'Back', todo_list_messages_path(@message.todo_list) %>

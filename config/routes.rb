@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :todo_lists do
+    resources :messages
+  end
   devise_for :users
   resources :todo_lists do
     resources :todo_items

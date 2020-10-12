@@ -24,6 +24,13 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   overflow-y: scroll;
 }
 
+.messages-card {
+  height: 50em;
+  width: 60vw;
+  overflow-y: scroll;
+}
+
+
 ::-webkit-scrollbar {
   display: none;
 }
