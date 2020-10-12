@@ -15,10 +15,7 @@ export default class extends ApplicationController {
    * By default, StimulusReflex overrides the -connect- method so make sure you
    * call super if you intend to do anything else when this controller connects.
   */
-  sort(event) {
-    console.log("here");
-  }
-  
+
   connect () {
     super.connect()
     // add your code here, if applicable

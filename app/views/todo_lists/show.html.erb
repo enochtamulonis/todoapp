@@ -1,4 +1,4 @@
-<div class="w-full h-screen show-page-body flex flex-col bg-green-500 items-center pt-10">
+<div class="w-full h-screen show-page-body flex flex-col bg-green-500 items-center pt-10 pb-10">
 <h1 class="text-3xl text-white mt-4"> <%= @todo_list.title %> </h1>
   <div class="card-size bg-gray-400 flex flex-col rounded items-center">
     <div class=" w-full bg-gray-400">
@@ -13,7 +13,7 @@
     <div data-controller="todo_item" class="w-full">
       <ul class="w-full h-full flex flex-col items-center" data-action="drop->todo_item#sort">
         <% @todo_list.todo_items.order(created_at: :desc).each do |todo_item| %>
-        <li class="w-full h-full rounded flex item-center py-5 cursor-pointer" data-task-id="<%= todo_item.id %>">
+        <li class="w-full h-full rounded flex item-center py-5 cursor-move" data-task-id="<%= todo_item.id %>">
           <div class="flex w-full justify-between px-4">
             <span>
               <%= todo_item.description %>
