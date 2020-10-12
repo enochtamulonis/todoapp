@@ -45,6 +45,11 @@ $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
   width: 20em;
   overflow: hidden;
 }
+
+.navbar-top {
+  position: sticky;
+  top: 0;
+}
 @media (max-width: 1250px) {
   .card-size {
     width: 75vw;
