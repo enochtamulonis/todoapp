@@ -16,17 +16,22 @@
         <%= form.text_field :title, :class => "rounded pl-2 h-8" %>
       </div>
 
-      <div class="field flex flex-col">
+      <div class="field flex flex-col" data-controller="images">
         <%= form.label :custom_background, :class => "text-2xl text-white mb-2" %>
-        <%= form.file_field :background, :class => "rounded border py-8 flex pl-10" %>
+        <%= form.file_field :background, :class => "rounded border py-8 flex pl-10", data: {action: "images#showUploadedPicture"}  %>
         <% if todo_list.background.attached? %>
           <div class="picture-center-form">
-            <%= image_tag todo_list.background, :class => "uploaded-image"%>
+            <%= image_tag todo_list.background, :class => "uploaded-image", data: {target: "images.displayedPicture"} %>
+          </div>
+        <% else %>
+          <div class="picture-center-form hidden"  data-target="images.picture">
+            <%= image_tag "", :class => "uploaded-image", data: {target: "images.displayedPicture"} %>
           </div>
         <% end %>
+
       </div>
 
       <div class="actions">
-        <%= form.submit :class => "bg-green-500 py-2 px-2 rounded cursor-pointer mt-4"%>
+        <%= form.submit :class => "bg-green-500 py-2 px-2 rounded cursor-pointer mt-4", data: {target: "images.displayedPicture"} %>
       </div>
 <% end %>

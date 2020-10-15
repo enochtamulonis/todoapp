@@ -10,10 +10,10 @@
         <%= f.submit "Add", class: "flex-shrink-0 border-transparent border-2 bg-transparent hover:text-white hover:bg-indigo-600 text-md py-1 px-2 rounded cursor-pointer" %>
       </div>
     <% end %>
-    <div data-controller="todo_item" class="w-full">
-      <ul class="w-full h-full flex flex-col items-center" data-action="drop->todo_item#sort">
+    <div class="w-full">
+      <ul class="w-full h-full flex flex-col items-center">
         <% @todo_list.todo_items.order(created_at: :desc).each do |todo_item| %>
-        <li class="w-full h-full rounded flex item-center py-5 cursor-move" data-task-id="<%= todo_item.id %>">
+        <li class="w-full h-full rounded flex item-center py-5 cursor-move">
           <div class="flex w-full justify-between px-4">
             <span>
               <%= todo_item.description %>

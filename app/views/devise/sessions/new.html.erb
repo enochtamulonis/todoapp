@@ -2,17 +2,17 @@
   <h1 class="text-3xl text-white mt-8">Sign In </h1>
 
   <div class="card-size bg-gray-800 flex flex-col items-center pt-8 rounded">
-    <div class="w-1/2 h-3/4 text-white">
+    <div class="w-1/2 h-3/4 pt-10 text-white">
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :class => "text-black pl-2 rounded mt-2 w-full h-8"  %>
       </div>
 
       <div class="field">
         <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password" %>
+        <%= f.password_field :password, autocomplete: "current-password", :class => "text-black pl-2 rounded mt-2 w-full h-8"  %>
       </div>
 
       <% if devise_mapping.rememberable? %>

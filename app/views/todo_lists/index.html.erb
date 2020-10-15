@@ -1,4 +1,4 @@
-<div class="w-full h-screen bg-green-500 flex flex-col items-center pt-10 pb-10">
+<div class="w-full h-screen index-background flex flex-col items-center pt-10 pb-10">
     <h1 class="text-3xl text-white mt-4 mb-2">All of your lists</h1>
     <div class="card-size bg-gray-300 flex flex-column rounded justify-center">
 
@@ -27,9 +27,8 @@
 
     </div>
     <%= link_to new_todo_list_path, :class => "mt-4 flex justify-center" do %>
-      <div class="flex bg-yellow-300 items-center min-w-10 px-10 py-2 rounded flex justify-center hover:bg-transparent border-2 border-transparent hover:border-yellow-300">
+      <div class="flex bg-yellow-300 items-center min-w-10 px-10 py-2 rounded flex justify-center hover:bg-transparent border-2 border-transparent hover:border-yellow-300 transition-all duration-500">
         <i class="fa fa-plus-square"></i><h3 class=" ml-3"> New Todo List </h3>
       </div>
     <% end %>
-
 </div>
